@@ -1,0 +1,64 @@
+**ngôn ngữ truy vấn trên một bảng 
+
+-select [distict top ] tên cột , ....
+from tên bảng 
+
+-where [ nơi đạt điều kiện thường VD diểm > 5]
+
+-group by [tên cột 1 gần nhóm , tên cột 2 gần nhóm... ]
+
+-Having [nơi đạt điều kiện có sự tham gia hàm thống kê VD: avg(diểm) > 8 ]
+
+- Order by [Tên cột sắp sếp tăng asc giảm: desc , Tên cột 2 cần sắp xếp tăng: asc giảm desc]
+
+trong đó 
+[] không bắt buộc
+distinct loại bỏ dòng dữ liệu chùng
+Top n lấy n dòng 
+
+VD
+select cot1 , cot2 , avg(cot3) 
+from tenbang
+
+where...
+group by cot1 ,cot2 
+having 
+order by 
+
+1--Lấy thông tin 
+select LastName , FirstName 
+from Employees
+
+2--Sắp xếp tằng dần
+select LastName , FirstName , BirthDate
+from Employees
+order by LastName asc --> có thể có asc hoặc k
+
+3--Sắp xếp giảm dần
+select LastName , FirstName , BirthDate
+from Employees
+order by LastName desc
+
+4--So sánh chuỗi
+select * from Employees
+where LastName = 'Davolio'
+order by FirstName desc
+
+5--Nối chuỗi
+select LastName + ' ' +  FirstName as 'Ho va Ten'
+from Employees
+
+6--Lấy thông tin và loại bỏ cái kết quả trùng
+select distinct LastName
+from Employees
+
+7--
+
+
+****** nối nhiều bảng 
+select [distinct | top n ] tên cột 1 ... 
+from Bang1 ( inner join | left outer join | right outer join Bang 2  on ĐK  Bảng 1 cột chung = Bảng 2 cột chung 
+
+inner join : phép nôi bằng , đưa ra dữ liệu chung
+left auter join: ưu tiên dữ liệu chung
+right outer join : ưu tiên bảng bên trái
